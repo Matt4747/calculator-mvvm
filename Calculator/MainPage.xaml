@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Calculator.MainPage">
+    <StackLayout BackgroundColor="black">
+        <StackLayout Padding="0,0,50,0">
+            <Label x:Name="TopText" Text="{Binding CurrentEntry}" HorizontalTextAlignment="End" FontSize="50" TextColor="white"/>
+        </StackLayout>
+        <Grid Padding="50,0,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="(" Grid.Row="0" Grid.Column="0" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text=")" Grid.Row="0" Grid.Column="1" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="mc" Grid.Row="0" Grid.Column="2" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="m+" Grid.Row="0" Grid.Column="3" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="m-" Grid.Row="0" Grid.Column="4" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="mr" Grid.Row="0" Grid.Column="5" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="AC" Grid.Row="0" Grid.Column="6" BackgroundColor="darkgray" FontSize="20" TextColor="black"  Command="{Binding ClearCommand}"/>
+            <Button Text="+/-" Grid.Row="0" Grid.Column="7" BackgroundColor="darkgray" FontSize="20" TextColor="black" Command="{Binding PlusMinusCommand}"/>
+            <Button Text="%" Grid.Row="0" Grid.Column="8" BackgroundColor="darkgray" FontSize="20" TextColor="black"/>
+            <Button Text="÷" Grid.Row="0" Grid.Column="9" BackgroundColor="orange" FontSize="20" TextColor="white" Command="{Binding OperatorCommand}" CommandParameter="/"/>
+            <Button Text="2nd" x:Name="second" Grid.Row="1" Grid.Column="0" BackgroundColor="#1f1f1f" TextColor="white" Clicked="SecondClicked"/>
+            <Button Text="x^2" Grid.Row="1" Grid.Column="1" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding SquareCommand}"/>
+            <Button Text="x^3" Grid.Row="1" Grid.Column="2" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="x^y" Grid.Row="1" Grid.Column="3" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="e^x" Grid.Row="1" Grid.Column="4" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding EtoXCommand}"/>
+            <Button x:Name="changeButton" x:FieldModifier="public" Text="10^x" Grid.Row="1" Grid.Column="5" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding XtoXCommand}" CommandParameter="{x:Reference changeButton}"/>
+            <Button Text="7" Grid.Row="1" Grid.Column="6" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="7"/>
+            <Button Text="8" Grid.Row="1" Grid.Column="7" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="8"/>
+            <Button Text="9" Grid.Row="1" Grid.Column="8" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="9"/>
+            <Button Text="*" Grid.Row="1" Grid.Column="9" BackgroundColor="orange" FontSize="20" TextColor="white" Command="{Binding OperatorCommand}" CommandParameter="*"/>
+            <Button Text="1/x" Grid.Row="2" Grid.Column="0" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding OneOverCommand}"/>
+            <Button Text="2√x" Grid.Row="2" Grid.Column="1" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding RootCommand}" CommandParameter="2"/>
+            <Button Text="3√x" Grid.Row="2" Grid.Column="2" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding RootCommand}" CommandParameter="3"/>
+            <Button Text="y√x" Grid.Row="2" Grid.Column="3" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="ln" Grid.Row="2" Grid.Column="4" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding lnCommand}"/>
+            <Button Text="log_10" Grid.Row="2" Grid.Column="5" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding LogCommand}"/>
+            <Button Text="4" Grid.Row="2" Grid.Column="6" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="4"/>
+            <Button Text="5" Grid.Row="2" Grid.Column="7" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="5"/>
+            <Button Text="6" Grid.Row="2" Grid.Column="8" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="6"/>
+            <Button Text="-" Grid.Row="2" Grid.Column="9" BackgroundColor="orange" FontSize="20" TextColor="white" Command="{Binding OperatorCommand}" CommandParameter="-"/>
+            <Button Text="x!" Grid.Row="3" Grid.Column="0" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding FactorialCommand}"/>
+            <Button Text="sin" Grid.Row="3" Grid.Column="1" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding TrigCommand}" CommandParameter="sin"/>
+            <Button Text="cos" Grid.Row="3" Grid.Column="2" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding TrigCommand}" CommandParameter="cos"/>
+            <Button Text="tan" Grid.Row="3" Grid.Column="3" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding TrigCommand}" CommandParameter="tan"/>
+            <Button Text="e" Grid.Row="3" Grid.Column="4" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="EE" Grid.Row="3" Grid.Column="5" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="1" Grid.Row="3" Grid.Column="6" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="1"/>
+            <Button Text="2" Grid.Row="3" Grid.Column="7" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="2"/>
+            <Button Text="3" Grid.Row="3" Grid.Column="8" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="3"/>
+            <Button Text="+" Grid.Row="3" Grid.Column="9" BackgroundColor="orange" FontSize="20" TextColor="white" Command="{Binding OperatorCommand}" CommandParameter="+"/>
+            <Button Text="Deg" Grid.Row="4" Grid.Column="0" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="sinh" Grid.Row="4" Grid.Column="1" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="cosh" Grid.Row="4" Grid.Column="2" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="tanh" Grid.Row="4" Grid.Column="3" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="π" Grid.Row="4" Grid.Column="4" BackgroundColor="#1f1f1f" TextColor="white"/>
+            <Button Text="Rand" Grid.Row="4" Grid.Column="5" BackgroundColor="#1f1f1f" TextColor="white" Command="{Binding RandCommand}"/>
+            <Button Text="0" Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="6" FontSize="20" BackgroundColor="#303030" TextColor="white" Command="{Binding NumericCommand}" CommandParameter="0"/>
+            <Button Text="." Grid.Row="4" Grid.Column="8" BackgroundColor="#303030" FontSize="20" TextColor="white" Command="{Binding DecimalPointCommand}"/>
+            <Button Text="=" Grid.Row="4" Grid.Column="9" BackgroundColor="orange" FontSize="20" TextColor="white" Command="{Binding EqualsCommand}"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
